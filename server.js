@@ -23,12 +23,13 @@ const JWT_SECRET = process.env.JWT_SECRET; // Replace with your JWT secret
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, origin); 
-  },
-  credentials: true,
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     callback(null, origin); 
+//   },
+//   credentials: true,
+// }));
 
 
 
@@ -40,12 +41,6 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema);
 
-// const User1 = new User({
-//     email: "user1@example.com",
-//     password: "$2a$10$7Q5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5Z5"
-// });
-
-// User1.save();
 
 
 // Register routes
